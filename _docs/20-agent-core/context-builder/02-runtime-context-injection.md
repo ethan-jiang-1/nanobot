@@ -52,7 +52,7 @@ runtime 注入只用于本轮模型输入，写会话时会被 `_save_turn` 剥�
 
 相关实现：
 
-- 剥离逻辑：[loop.py:L465-L503](file:///Users/bowhead/nanobot/nanobot/agent/loop.py#L465-L503)
+- 剥离逻辑：[loop.py:L468-L503](file:///Users/bowhead/nanobot/nanobot/agent/loop.py#L468-L503)
 - 相关回归测试：[test_loop_save_turn.py:L12-L23](file:///Users/bowhead/nanobot/tests/test_loop_save_turn.py#L12-L23)
 
 ## 复用点：subagent

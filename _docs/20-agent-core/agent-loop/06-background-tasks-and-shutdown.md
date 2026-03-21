@@ -11,18 +11,19 @@
 
 所以 loop 采用后台任务模型：主链路先响应，归档稍后完成。
 
-## ` _schedule_memory_archive` 的行为
+## `_schedule_background` 的行为
 
 该方法会创建后台任务并纳入 `_background_tasks` 集合管理：
 
-- 任务开始时复制消息快照，避免后续会话改写影响归档输入
 - 任务结束自动从集合移除
-- 任务异常只记录日志，不中断主链路
+- 关闭时由 `close_mcp` 统一 `gather` 等待
+- 调度的是协程对象，具体是否“先快照再归档”由调用方决定（例如 `/new` 分支先切出 `snapshot`）
 
 源码锚点：
 
-- 调度函数：[loop.py:L362-L369](file:///Users/bowhead/nanobot/nanobot/agent/loop.py#L362-L369)
-- 实际归档函数：[loop.py:L579-L592](file:///Users/bowhead/nanobot/nanobot/agent/loop.py#L579-L592)
+- 调度函数：[loop.py:L352-L357](file:///Users/bowhead/nanobot/nanobot/agent/loop.py#L352-L357)
+- `/new` 分支归档调度：[loop.py:L402-L410](file:///Users/bowhead/nanobot/nanobot/agent/loop.py#L402-L410)
+- 常规回合后归纳调度：[loop.py:L454-L457](file:///Users/bowhead/nanobot/nanobot/agent/loop.py#L454-L457)
 
 ## 优雅关闭策略
 
@@ -30,7 +31,7 @@
 
 1. `await gather(*background_tasks, return_exceptions=True)`
 2. 清空 `_background_tasks`
-3. `await tools.close_mcp()`
+3. 若存在 `_mcp_stack`，执行 `await _mcp_stack.aclose()`
 
 这三步确保：
 

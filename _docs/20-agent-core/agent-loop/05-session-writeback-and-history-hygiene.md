@@ -17,7 +17,7 @@
 
 源码锚点：
 
-- `_save_turn`：[loop.py:L488-L578](file:///Users/bowhead/nanobot/nanobot/agent/loop.py#L488-L578)
+- `_save_turn`：[loop.py:L468-L503](file:///Users/bowhead/nanobot/nanobot/agent/loop.py#L468-L503)
 
 ## runtime context 剥离
 

@@ -17,7 +17,7 @@ memory 归纳通过单工具 `save_memory` 完成，要求两个字段：
 
 ## 调用策略
 
-默认先强制 `tool_choice={"name":"save_memory"}`，要求模型必须走工具调用路径。  
+默认先强制 `tool_choice={"type":"function","function":{"name":"save_memory"}}`，要求模型必须走工具调用路径。  
 若 provider 返回 “tool_choice 不支持” 错误，再回退 `tool_choice="auto"` 重试一次。
 
 源码锚点：
