@@ -14,6 +14,11 @@
 - `01-session-model-and-storage.md`：数据模型与文件格式
 - `02-history-slicing-and-tool-boundary.md`：历史裁剪与工具调用合法性
 - `03-cache-load-save-and-migration.md`：缓存命中、加载保存、旧路径迁移
+- `04-consolidation-offset-and-history-view.md`：`last_consolidated` 与 history 视图协作
+
+## 产出数量
+
+- 预计 4 篇，覆盖 `manager.py` 的数据一致性关键点
 
 ## 分析抓手
 

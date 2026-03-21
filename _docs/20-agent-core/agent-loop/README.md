@@ -11,9 +11,16 @@
 
 ## 建议文档拆分
 
-- `01-lifecycle-and-entry.md`：初始化、启动、关闭
-- `02-iteration-and-tool-calls.md`：LLM-Tool-LLM 迭代机制
-- `03-cancellation-and-recovery.md`：停止、重启、异常回退
+- `01-lifecycle-and-wiring.md`：对象装配、默认工具注册、MCP 连接
+- `02-run-loop-and-dispatch.md`：事件循环、消息消费、全局处理锁
+- `03-llm-iteration-and-tool-execution.md`：模型迭代、工具调用、退出条件
+- `04-command-paths-and-control-flow.md`：`/new` `/help` `/stop` `/restart` 分支
+- `05-session-writeback-and-history-hygiene.md`：`_save_turn`、截断、运行时上下文剥离
+- `06-background-tasks-and-shutdown.md`：后台归档任务、MCP 清理、停机语义
+
+## 产出数量
+
+- 预计 6 篇，约覆盖 `loop.py` 的全部关键路径
 
 ## 分析抓手
 
