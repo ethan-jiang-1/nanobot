@@ -36,3 +36,33 @@
 - `agent-execution`：4 篇
 - `outbound-delivery`：4 篇
 - 合计：16 篇主题文档（不含各目录 README）
+
+## 16 篇规划清单（对照）
+
+### startup-bootstrap
+
+- `startup-bootstrap/01-cli-gateway-bootstrap.md`
+- `startup-bootstrap/02-provider-bus-agent-wiring.md`
+- `startup-bootstrap/03-channel-manager-startup.md`
+- `startup-bootstrap/04-shutdown-sequence-and-resource-drain.md`
+
+### inbound-routing
+
+- `inbound-routing/01-channel-message-to-inbound-event.md`
+- `inbound-routing/02-inbound-event-model-and-session-key.md`
+- `inbound-routing/03-agent-run-loop-dispatch.md`
+- `inbound-routing/04-command-short-circuit-vs-normal-flow.md`
+
+### agent-execution
+
+- `agent-execution/01-process-message-high-level-sequence.md`
+- `agent-execution/02-context-build-and-runtime-metadata.md`
+- `agent-execution/03-llm-tool-iteration-and-progress-events.md`
+- `agent-execution/04-session-writeback-and-post-turn-consolidation.md`
+
+### outbound-delivery
+
+- `outbound-delivery/01-outbound-queue-and-dispatcher.md`
+- `outbound-delivery/02-channel-send-semantics.md`
+- `outbound-delivery/03-progress-message-vs-final-response.md`
+- `outbound-delivery/04-failure-path-retry-and-user-visible-effects.md`
