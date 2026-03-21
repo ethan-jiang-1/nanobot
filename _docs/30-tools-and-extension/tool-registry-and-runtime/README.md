@@ -15,3 +15,4 @@
 - `02-toolregistry-registration-and-dispatch.md`
 - `03-agentloop-tool-execution-iteration.md`
 - `04-tool-context-injection-and-turn-semantics.md`
+- `05-why-llm-decides-to-write-files-or-run-commands.md`

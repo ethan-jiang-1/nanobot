@@ -15,10 +15,11 @@
 - `02-runtime-context-injection.md`：runtime tag 与 channel/chat 注入机制
 - `03-message-shape-and-multimodal.md`：消息结构与图片内容编码
 - `04-provider-compatibility-and-message-append.md`：单条 user 合并策略与 assistant/tool 追加规则
+- `05-bootstrap-instructions-and-workspace-targeting.md`：workspace 定位、bootstrap 约束与路径决策来源
 
 ## 产出数量
 
-- 预计 4 篇，覆盖 `context.py` 的核心构建与兼容性设计
+- 预计 5 篇，覆盖 `context.py` 的核心构建与兼容性设计
 
 ## 分析抓手
 

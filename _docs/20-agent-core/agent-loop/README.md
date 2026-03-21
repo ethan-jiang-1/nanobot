@@ -17,10 +17,11 @@
 - `04-command-paths-and-control-flow.md`：`/new` `/help` `/stop` `/restart` 分支
 - `05-session-writeback-and-history-hygiene.md`：`_save_turn`、截断、运行时上下文剥离
 - `06-background-tasks-and-shutdown.md`：后台归档任务、MCP 清理、停机语义
+- `07-artifact-generation-and-exec-closure.md`：产物落盘、`exec` 验证、错误驱动修复闭环
 
 ## 产出数量
 
-- 预计 6 篇，约覆盖 `loop.py` 的全部关键路径
+- 预计 7 篇，约覆盖 `loop.py` 的全部关键路径
 
 ## 分析抓手
 

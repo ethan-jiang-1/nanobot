@@ -12,7 +12,7 @@
 
 - `startup-bootstrap`：CLI/Gateway 启动装配、组件 wiring、关闭顺序
 - `inbound-routing`：各 channel 如何构造 inbound 事件并进入 AgentLoop
-- `agent-execution`：`_process_message` 到 `_run_agent_loop` 的执行闭环
+- `agent-execution`：`_process_message` 到 `_run_agent_loop` 的执行闭环与产物交付时序
 - `outbound-delivery`：outbound 队列、dispatcher、channel send 语义
 
 ## 深挖顺序
@@ -33,11 +33,11 @@
 
 - `startup-bootstrap`：4 篇
 - `inbound-routing`：4 篇
-- `agent-execution`：4 篇
+- `agent-execution`：5 篇
 - `outbound-delivery`：4 篇
-- 合计：16 篇主题文档（不含各目录 README）
+- 合计：17 篇主题文档（不含各目录 README）
 
-## 16 篇规划清单（对照）
+## 17 篇规划清单（对照）
 
 ### startup-bootstrap
 
@@ -59,6 +59,7 @@
 - `agent-execution/02-context-build-and-runtime-metadata.md`
 - `agent-execution/03-llm-tool-iteration-and-progress-events.md`
 - `agent-execution/04-session-writeback-and-post-turn-consolidation.md`
+- `agent-execution/05-artifact-write-exec-fix-user-visible-sequence.md`
 
 ### outbound-delivery
 

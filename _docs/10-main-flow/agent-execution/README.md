@@ -15,8 +15,8 @@
 - `02-context-build-and-runtime-metadata.md`：`ContextBuilder` 组包策略
 - `03-llm-tool-iteration-and-progress-events.md`：`_run_agent_loop` 与进度事件
 - `04-session-writeback-and-post-turn-consolidation.md`：`_save_turn` 与归纳调度
+- `05-artifact-write-exec-fix-user-visible-sequence.md`：产物写入、执行验证、失败修复、用户可见进度
 
 ## 产出数量
 
-- 预计 4 篇，覆盖 Agent 主执行链路
-
+- 预计 5 篇，覆盖 Agent 主执行链路
