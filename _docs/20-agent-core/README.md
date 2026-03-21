@@ -1,15 +1,25 @@
-# 20-Agent核心
+# 20-agent-core
 
-本目录聚焦 NanoBot 的核心智能回路与状态管理机制。
+本目录聚焦 NanoBot 的中心核心：Agent 的调度、上下文、记忆与会话。
 
-## 核心主题
+## 分析范围
 
-- AgentLoop：调度与迭代
-- ContextBuilder：上下文装配
-- MemoryConsolidator：记忆归纳
-- SessionManager：会话持久化
+- `agent-loop`：主循环、工具调用迭代、命令控制、并发与中断
+- `context-builder`：系统提示词拼装、运行时上下文注入、多模态输入封装
+- `memory-consolidator`：会话压缩归纳、历史沉淀、降级策略
+- `session-manager`：JSONL 持久化、历史切片、工具调用边界合法性
 
-## 目标
+## 深挖顺序
 
-- 讲清核心循环如何稳定运行
-- 讲清长期运行时上下文为何不会失控
+- 先看 `agent-loop`，建立端到端时序
+- 再看 `context-builder`，明确输入如何变成可喂给模型的消息链
+- 再看 `session-manager`，理解长期会话如何保持结构稳定
+- 最后看 `memory-consolidator`，理解上下文超长时如何收敛
+
+## 统一分析维度
+
+- 角色职责：该模块在主链路中负责什么
+- 数据输入：依赖哪些对象与字段
+- 状态变化：会更新哪些内存态与持久化状态
+- 边界条件：异常、超限、取消时如何处理
+- 与其他模块关系：调用方向与耦合点
