@@ -16,6 +16,7 @@
 
 ## 子目录
 
+- 目录名前的数字前缀用于固定阅读顺序与后续扩展顺序，避免按字母排序导致阅读路径漂移
 - `01-config-loading/`：配置入口、load/save、迁移与 onboard 注入
 - `02-provider-resolution/`：schema 匹配策略、registry 优先级、LiteLLM 网关路由
 - `03-instance-isolation/`：data/workspace/sessions/media/cron 的实例边界
