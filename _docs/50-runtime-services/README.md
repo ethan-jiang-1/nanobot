@@ -26,12 +26,12 @@
 
 | 现象 | 核心文件 | 关键函数 |
 |---|---|---|
-| 任务到点没触发 | `cron/service.py` | `_compute_next_run`, `_arm_timer` |
-| job 被创建但没有回消息 | `agent/tools/cron.py`, `cli/commands.py` | `CronTool.execute`, `_pick_heartbeat_target` |
-| HEARTBEAT 有内容但长期不执行 | `heartbeat/service.py` | `_decide`, `_run_loop` |
-| heartbeat 执行了但用户侧无通知 | `cli/commands.py`, `heartbeat/service.py` | `_pick_heartbeat_target`, `on_heartbeat_notify` |
-| spawn 后只看到“已启动”无后续 | `agent/subagent.py` | `_run_subagent`, `_announce_result` |
-| `/stop` 后后台任务仍未停干净 | `agent/subagent.py`, `agent/loop.py` | `cancel_by_session`, `_handle_stop` |
+| 任务到点没触发 | [cron/service.py](../../nanobot/cron/service.py) | [_compute_next_run](../../nanobot/cron/service.py#L20-L46), [_arm_timer](../../nanobot/cron/service.py#L228-L245) |
+| job 被创建但没有回消息 | [agent/tools/cron.py](../../nanobot/agent/tools/cron.py), [cli/commands.py](../../nanobot/cli/commands.py) | [CronTool.execute](../../nanobot/agent/tools/cron.py#L74-L93), [_pick_heartbeat_target](../../nanobot/cli/commands.py#L595-L609) |
+| HEARTBEAT 有内容但长期不执行 | [heartbeat/service.py](../../nanobot/heartbeat/service.py) | [_decide](../../nanobot/heartbeat/service.py#L85-L109), [_run_loop](../../nanobot/heartbeat/service.py#L131-L141) |
+| heartbeat 执行了但用户侧无通知 | [cli/commands.py](../../nanobot/cli/commands.py), [heartbeat/service.py](../../nanobot/heartbeat/service.py) | [_pick_heartbeat_target](../../nanobot/cli/commands.py#L595-L609), [on_heartbeat_notify](../../nanobot/cli/commands.py#L627-L633) |
+| spawn 后只看到“已启动”无后续 | [agent/subagent.py](../../nanobot/agent/subagent.py) | [_run_subagent](../../nanobot/agent/subagent.py#L82-L166), [_announce_result](../../nanobot/agent/subagent.py#L168-L198) |
+| `/stop` 后后台任务仍未停干净 | [agent/subagent.py](../../nanobot/agent/subagent.py), [agent/loop.py](../../nanobot/agent/loop.py) | [cancel_by_session](../../nanobot/agent/subagent.py#L223-L230), [_handle_stop](../../nanobot/agent/loop.py#L288-L317) |
 
 ## 统一分析维度
 
