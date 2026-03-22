@@ -24,6 +24,6 @@
 
 | 现象 | 核心文件 | 关键函数 |
 |---|---|---|
-| 工具执行后出现越权或副作用失控 | [shell.py](../../nanobot/agent/tools/shell.py), [web.py](../../nanobot/agent/tools/web.py), [cron.py](../../nanobot/agent/tools/cron.py) | [ExecTool.execute](../../nanobot/agent/tools/shell.py), [WebFetchTool.execute](../../nanobot/agent/tools/web.py), [CronTool.execute](../../nanobot/agent/tools/cron.py) |
-| `/stop` 后仍有后台任务继续跑 | [loop.py](../../nanobot/agent/loop.py), [subagent.py](../../nanobot/agent/subagent.py) | [_handle_stop](../../nanobot/agent/loop.py), [cancel_by_session](../../nanobot/agent/subagent.py) |
-| 历史越来越乱、模型上下文失真 | [loop.py](../../nanobot/agent/loop.py), [manager.py](../../nanobot/session/manager.py), [memory.py](../../nanobot/agent/memory.py) | [_save_turn](../../nanobot/agent/loop.py), [Session.get_history](../../nanobot/session/manager.py), [maybe_consolidate_by_tokens](../../nanobot/agent/memory.py) |
+| 工具执行后出现越权或副作用失控 | [shell.py](../../nanobot/agent/tools/shell.py), [web.py](../../nanobot/agent/tools/web.py), [cron.py](../../nanobot/agent/tools/cron.py) | [ExecTool.execute](../../nanobot/agent/tools/shell.py#L78-L143), [WebFetchTool.execute](../../nanobot/agent/tools/web.py#L234-L333), [CronTool.execute](../../nanobot/agent/tools/cron.py#L74-L199) |
+| `/stop` 后仍有后台任务继续跑 | [loop.py](../../nanobot/agent/loop.py), [subagent.py](../../nanobot/agent/subagent.py) | [_handle_stop](../../nanobot/agent/loop.py#L288-L302), [cancel_by_session](../../nanobot/agent/subagent.py#L223-L231) |
+| 历史越来越乱、模型上下文失真 | [loop.py](../../nanobot/agent/loop.py), [manager.py](../../nanobot/session/manager.py), [memory.py](../../nanobot/agent/memory.py) | [_save_turn](../../nanobot/agent/loop.py#L468-L503), [Session.get_history](../../nanobot/session/manager.py#L69-L92), [maybe_consolidate_by_tokens](../../nanobot/agent/memory.py#L302-L357) |
