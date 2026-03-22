@@ -33,10 +33,18 @@ flowchart LR
 - 再看 `cancellation-and-shutdown/`，理解“中断与退出时如何不丢状态”
 - 最后看 `history-and-memory-consistency/`，理解“长期运行后如何保持一致性”
 
+## 安全深挖路径
+
+- `tool-safety-boundaries/01`：先看能力闸门与参数校验，确认“能不能调用”
+- `tool-safety-boundaries/02`：再看 `exec`，确认“命令是否会被拦截与限时”
+- `tool-safety-boundaries/03`：再看 `web`，确认“外部内容如何降权、SSRF 如何阻断”
+- `tool-safety-boundaries/04`：最后看副作用工具，确认“消息/子代理/调度如何防扩散”
+
 ## 故障定位速查
 
 | 现象 | 核心文件 | 关键函数 |
 |---|---|---|
 | 工具执行后出现越权或副作用失控 | [shell.py](../../nanobot/agent/tools/shell.py), [web.py](../../nanobot/agent/tools/web.py), [cron.py](../../nanobot/agent/tools/cron.py) | [ExecTool.execute](../../nanobot/agent/tools/shell.py#L78-L143), [WebFetchTool.execute](../../nanobot/agent/tools/web.py#L234-L333), [CronTool.execute](../../nanobot/agent/tools/cron.py#L74-L199) |
+| 外部用户疑似越权触发机器人动作 | [base.py](../../nanobot/channels/base.py), [whatsapp.py](../../nanobot/channels/whatsapp.py), [server.ts](../../bridge/src/server.ts) | [is_allowed](../../nanobot/channels/base.py#L79-L87), [WhatsAppChannel.start](../../nanobot/channels/whatsapp.py#L51-L87), [BridgeServer.start](../../bridge/src/server.ts#L27-L68) |
 | `/stop` 后仍有后台任务继续跑 | [loop.py](../../nanobot/agent/loop.py), [subagent.py](../../nanobot/agent/subagent.py) | [_handle_stop](../../nanobot/agent/loop.py#L288-L302), [cancel_by_session](../../nanobot/agent/subagent.py#L223-L231) |
 | 历史越来越乱、模型上下文失真 | [loop.py](../../nanobot/agent/loop.py), [manager.py](../../nanobot/session/manager.py), [memory.py](../../nanobot/agent/memory.py) | [_save_turn](../../nanobot/agent/loop.py#L468-L503), [Session.get_history](../../nanobot/session/manager.py#L69-L92), [maybe_consolidate_by_tokens](../../nanobot/agent/memory.py#L302-L357) |
