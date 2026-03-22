@@ -2,6 +2,19 @@
 
 本目录聚焦 NanoBot 的 `tools and execution` 主题：模型如何在运行期拿到工具定义、执行工具、处理失败，并通过扩展机制获得新能力。
 
+## 扩展能力地图
+
+```mermaid
+flowchart LR
+    TR[tool-registry-and-runtime]
+    BI[built-in-tools-and-guards]
+    MCP[mcp-external-tools]
+    SK[skills-and-extension-points]
+    TR --> BI
+    TR --> MCP
+    TR --> SK
+```
+
 ## 拆分结论
 
 - 维持 **4 个子目录**，不增不减

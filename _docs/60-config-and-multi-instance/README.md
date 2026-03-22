@@ -2,6 +2,18 @@
 
 本目录聚焦配置装载、Provider 解析与实例隔离三条主链路，解释 NanoBot 如何在同机多实例场景下稳定运行且互不干扰。
 
+## 配置与实例关系图
+
+```mermaid
+flowchart LR
+    CL[config-loading]
+    PR[provider-resolution]
+    II[instance-isolation]
+    GW[gateway/agent runtime]
+    CL --> PR --> GW
+    CL --> II --> GW
+```
+
 ## 核心主题
 
 - 配置从 CLI 入口到 schema 验证、迁移与保存的完整生命周期

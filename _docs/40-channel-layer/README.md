@@ -2,6 +2,19 @@
 
 本目录聚焦“不同平台如何接入同一个 Agent 内核”。
 
+## 接入层统一流转图
+
+```mermaid
+flowchart LR
+    TG[Telegram/Matrix/WeCom/CLI]
+    BC[BaseChannel Adapter]
+    CM[ChannelManager]
+    BUS[MessageBus]
+    AL[AgentLoop]
+    TG --> BC --> CM --> BUS --> AL
+    AL --> BUS --> CM --> BC --> TG
+```
+
 ## 核心主题
 
 - Channel 抽象接口

@@ -2,6 +2,20 @@
 
 本目录聚焦 NanoBot 的中心核心：Agent 的调度、上下文、记忆与会话。
 
+## 核心协作图
+
+```mermaid
+flowchart LR
+    AL[agent-loop]
+    CB[context-builder]
+    SM[session-manager]
+    MC[memory-consolidator]
+    AL --> CB
+    AL --> SM
+    AL --> MC
+    SM --> MC
+```
+
 ## 分析范围
 
 - `agent-loop`：主循环、工具调用迭代、命令控制、并发与中断

@@ -2,6 +2,20 @@
 
 本目录聚焦 NanoBot 在“非即时交互”阶段的执行体系：定时调度、周期唤醒、后台任务并发。
 
+## 运行时服务关系图
+
+```mermaid
+flowchart LR
+    CR[cron-scheduler]
+    HB[heartbeat-service]
+    SA[subagent-runtime]
+    AL[AgentLoop]
+    CR --> AL
+    HB --> AL
+    AL --> SA
+    SA --> AL
+```
+
 ## 分析范围
 
 - `cron-scheduler`：`CronService` 的持久化调度与执行语义

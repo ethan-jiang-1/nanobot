@@ -2,6 +2,17 @@
 
 本目录聚焦“用户一条消息进来后发生了什么”。
 
+## 主链路鸟瞰图
+
+```mermaid
+flowchart LR
+    SB[startup-bootstrap]
+    IR[inbound-routing]
+    AE[agent-execution]
+    OD[outbound-delivery]
+    SB --> IR --> AE --> OD
+```
+
 ## 分析范围
 
 - 入口与启动流程

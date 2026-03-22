@@ -2,6 +2,19 @@
 
 本目录聚焦跨模块机制，不再按单一链路拆分，而是按“线上最常见问题类型”组织。
 
+## 专题覆盖关系图
+
+```mermaid
+flowchart LR
+    TS[tool-safety-boundaries]
+    CS[cancellation-and-shutdown]
+    HM[history-and-memory-consistency]
+    RT[Runtime Stability]
+    TS --> RT
+    CS --> RT
+    HM --> RT
+```
+
 ## 选题原则
 
 - 只收纳横跨多个模块、单看某一目录无法讲清的问题
