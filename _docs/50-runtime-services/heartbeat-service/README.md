@@ -9,6 +9,12 @@
 - `run` 决策后如何接入 agent 执行链并路由通知
 - 关闭开关、异常与降级策略如何影响运行态
 
+## 适用场景
+
+- 想确认 heartbeat 为什么没有触发执行
+- 想定位“执行了但没有通知”的沉默分支
+- 想调整 `interval_s` 或 `enabled` 后验证运行语义
+
 ## 建议文档拆分
 
 - `01-heartbeat-loop-and-lifecycle.md`：start/stop、loop、tick 调度节奏

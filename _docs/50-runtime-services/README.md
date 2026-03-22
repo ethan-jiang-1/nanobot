@@ -14,6 +14,25 @@
 - 再看 `heartbeat-service`，理解“何时主动唤醒”的决策模型
 - 最后看 `subagent-runtime`，理解“如何并发执行并回传结果”
 
+## 阅读路径
+
+- 快速入门：先读每个子目录 `01`，快速建立运行时全景
+- 新增定时任务：优先看 `cron-scheduler/02` 与 `04`
+- 周期巡检或提醒：优先看 `heartbeat-service/02` 与 `03`
+- 后台并行任务：优先看 `subagent-runtime/01` 与 `03`
+- 排障入口：按“触发源 -> 状态变化 -> 回传路径 -> 边界策略”逆向定位
+
+## 故障定位速查
+
+| 现象 | 核心文件 | 关键函数 |
+|---|---|---|
+| 任务到点没触发 | `cron/service.py` | `_compute_next_run`, `_arm_timer` |
+| job 被创建但没有回消息 | `agent/tools/cron.py`, `cli/commands.py` | `CronTool.execute`, `_pick_heartbeat_target` |
+| HEARTBEAT 有内容但长期不执行 | `heartbeat/service.py` | `_decide`, `_run_loop` |
+| heartbeat 执行了但用户侧无通知 | `cli/commands.py`, `heartbeat/service.py` | `_pick_heartbeat_target`, `on_heartbeat_notify` |
+| spawn 后只看到“已启动”无后续 | `agent/subagent.py` | `_run_subagent`, `_announce_result` |
+| `/stop` 后后台任务仍未停干净 | `agent/subagent.py`, `agent/loop.py` | `cancel_by_session`, `_handle_stop` |
+
 ## 统一分析维度
 
 - 触发源：由谁触发（时间、周期、工具调用）
