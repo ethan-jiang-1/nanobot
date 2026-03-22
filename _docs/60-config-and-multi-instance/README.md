@@ -10,16 +10,15 @@
 
 ## 阅读路径
 
-- `01-config-loading/`：先看配置如何被加载、刷新、向后兼容
-- `03-instance-isolation/`：再看路径分层和实例级状态隔离
-- `02-provider-resolution/`：最后看 Provider 自动匹配与运行时实例化
+- `config-loading/`：先看配置如何被加载、刷新、向后兼容
+- `instance-isolation/`：再看路径分层和实例级状态隔离
+- `provider-resolution/`：最后看 Provider 自动匹配与运行时实例化
 
 ## 子目录
 
-- 目录名前的数字前缀用于固定阅读顺序与后续扩展顺序，避免按字母排序导致阅读路径漂移
-- `01-config-loading/`：配置入口、load/save、迁移与 onboard 注入
-- `02-provider-resolution/`：schema 匹配策略、registry 优先级、LiteLLM 网关路由
-- `03-instance-isolation/`：data/workspace/sessions/media/cron 的实例边界
+- `config-loading/`：配置入口、load/save、迁移与 onboard 注入
+- `provider-resolution/`：schema 匹配策略、registry 优先级、LiteLLM 网关路由
+- `instance-isolation/`：data/workspace/sessions/media/cron 的实例边界
 
 ## 故障定位速查
 
