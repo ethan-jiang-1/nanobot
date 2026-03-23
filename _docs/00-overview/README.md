@@ -77,6 +77,31 @@ sequenceDiagram
 3. 再读 30/50/60，理解能力扩展与运行期行为
 4. 最后读 70，按生产问题类型做逆向排障
 
+## 安全机制总览（建议加一轮）
+
+如果你最关心 “NanoBot 到底安全到什么程度”，建议在上面的顺序后，再补这一轮：
+
+1. 先看 [70 专题总览](../70-special-topics/README.md) 的安全阅读路径
+2. 再看 [工具安全边界总览](../70-special-topics/tool-safety-boundaries/README.md)
+3. 然后按 `01 -> 02 -> 03 -> 04` 读完能力闸门、命令守卫、网络防护、副作用边界
+4. 最后对照 [SECURITY.md](../../SECURITY.md) 做生产部署自检
+
+这一轮读完后，你会得到一个更清晰的判断：
+
+- NanoBot 具备工程实用型防护：ACL、路径边界、SSRF、防危险命令、超时与输出上限
+- NanoBot 不是系统级强沙箱：仍需配合主机权限、网络策略、密钥治理与审计体系
+
+## 故障-目录速配
+
+当线上出现问题时，先按现象定位到目录，再下钻具体文件：
+
+| 现象 | 优先目录 | 先看什么 |
+|---|---|---|
+| 工具执行越权、命令风险、外网抓取风险 | `70-special-topics/tool-safety-boundaries` | `01/02/03/04` |
+| `/stop` 后任务仍在跑、重启/退出不干净 | `70-special-topics/cancellation-and-shutdown` | 取消语义与关闭顺序 |
+| 会话越来越乱、长期运行上下文漂移 | `70-special-topics/history-and-memory-consistency` | 归纳边界与历史卫生 |
+| 频道消息收发异常或权限异常 | `40-channel-layer` | 接入、鉴权、路由 |
+
 ## 术语表
 
 | 术语 | 含义 | 关键位置 |
