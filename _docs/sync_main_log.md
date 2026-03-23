@@ -62,14 +62,18 @@
 
 ## 当前轮摘要
 
-- 详情见明细文件：`2026-03-23_main-bootstrap_to_20494a2.md`
+- 详情见明细文件：[2026-03-23_main-bootstrap_to_20494a2.md](./sync_main_log/2026-03-23_main-bootstrap_to_20494a2.md)
 
 ## 更新模板
 
-复制下面块并追加到文件末尾：
+每次同步按以下步骤执行：
+
+1. 在 `_docs/sync_main_log/` 新建文件：`YYYY-MM-DD_main-<OLD>_to_<NEW>.md`
+2. 将下面模板写入该新文件并补齐字段
+3. 回到本文件“明细索引”追加一行链接
 
 ```md
-## Sync YYYY-MM-DD
+# Sync YYYY-MM-DD · main <OLD> -> <NEW>
 
 - `_docs` 分支/提交：`<branch>` / `<head-sha>`
 - 上次已应用 main 基线：`<old-main-sha>`
