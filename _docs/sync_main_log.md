@@ -20,8 +20,8 @@
 
 - 记录时间：2026-03-23
 - `_docs` 当前分支/提交：`ethan` / `606b207`
-- 上次已应用 main 基线：`未登记（历史补录）`
-- 本次目标 main 基线：`20494a2`
+- 上次已应用 main 基线：`32f4e601455d0214eebbed160a0a5a768223f175`
+- 本次目标 main 基线：`20494a2c52dfbbda92db897ac2198021429610cc`
 - 当前分支与 main 差异计数（`HEAD...main`）：`24 0`
 
 ## 同步明细子目录
@@ -33,7 +33,7 @@
 
 ### 明细索引
 
-- [2026-03-23_main-bootstrap_to_20494a2.md](./sync_main_log/2026-03-23_main-bootstrap_to_20494a2.md)
+- [2026-03-23_main-32f4e60_to_20494a2.md](./sync_main_log/2026-03-23_main-32f4e60_to_20494a2.md)
 
 ## 核心命令（按窗口）
 
@@ -62,7 +62,7 @@
 
 ## 当前轮摘要
 
-- 详情见明细文件：[2026-03-23_main-bootstrap_to_20494a2.md](./sync_main_log/2026-03-23_main-bootstrap_to_20494a2.md)
+- 详情见明细文件：[2026-03-23_main-32f4e60_to_20494a2.md](./sync_main_log/2026-03-23_main-32f4e60_to_20494a2.md)
 
 ## 更新模板
 
