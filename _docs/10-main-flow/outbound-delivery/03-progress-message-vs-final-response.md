@@ -12,6 +12,13 @@
 
 如果是进度消息，还会有 `_tool_hint` 区分“工具提示”与“普通进度文本”。
 
+当请求声明 `_wants_stream` 时，还会出现 streaming 元数据：
+
+- `_stream_delta`：本次增量文本
+- `_stream_end`：本段流已结束
+- `_resuming`：后续是否继续工具轮
+- `_streamed`：最终正文已流式输出，渠道侧可跳过重复最终包
+
 源码锚点：
 
 - 进度事件封装：[loop.py:L439-L445](file:///Users/bowhead/nanobot/nanobot/agent/loop.py#L439-L445)
@@ -38,4 +45,3 @@ CLI interactive 模式对进度消息实时渲染，对非进度消息作为回�
 ## 相关测试
 
 - progress 内容只保留可见文本与 tool hint：[test_message_tool_suppress.py:L89-L116](file:///Users/bowhead/nanobot/tests/test_message_tool_suppress.py#L89-L116)
-

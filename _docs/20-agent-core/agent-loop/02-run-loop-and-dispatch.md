@@ -22,15 +22,16 @@
 
 在进入业务处理前，先做指令短路：
 
-- `/stop` -> `_handle_stop`
-- `/restart` -> `_handle_restart`
+- `/stop`、`/restart`、`/status` -> priority dispatch
 - 其他 -> 创建异步任务 `_dispatch`
 
 这条分支是“控制面优先”的体现：先处理系统控制，再处理普通对话。
 
 源码锚点：
 
-- 分支入口：[loop.py:L278-L285](file:///Users/bowhead/nanobot/nanobot/agent/loop.py#L278-L285)
+- 分支入口：[loop.py:L328-L335](file:///Users/bowhead/nanobot/nanobot/agent/loop.py#L328-L335)
+- priority 分发：[loop.py:L328-L335](file:///Users/bowhead/nanobot/nanobot/agent/loop.py#L328-L335)
+- router 分层策略：[router.py:L27-L84](file:///Users/bowhead/nanobot/nanobot/command/router.py#L27-L84)
 
 ## active_tasks 的作用
 
@@ -43,7 +44,7 @@
 
 源码锚点：
 
-- 任务登记与回收：[loop.py:L284-L287](file:///Users/bowhead/nanobot/nanobot/agent/loop.py#L284-L287)
+- 任务登记与回收：[loop.py:L335-L337](file:///Users/bowhead/nanobot/nanobot/agent/loop.py#L335-L337)
 
 ## `_dispatch` 与全局处理锁
 
@@ -60,7 +61,7 @@
 
 源码锚点：
 
-- `_dispatch`：[loop.py:L318-L338](file:///Users/bowhead/nanobot/nanobot/agent/loop.py#L318-L338)
+- `_dispatch`：[loop.py:L339-L375](file:///Users/bowhead/nanobot/nanobot/agent/loop.py#L339-L375)
 
 ## 分发后的回传语义
 
@@ -71,6 +72,12 @@
 - 异常：回传统一错误文案
 
 这解释了为什么某些工具路径执行后你会看到“无最终正文但流程正常结束”。
+
+若消息声明 `_wants_stream`，`_dispatch` 还会走增量回包协议：
+
+- `_stream_delta`：内容增量分片
+- `_stream_end`：一段 streaming 结束，`_resuming` 表示是否继续工具轮
+- `_streamed`：最终正文已通过增量发送，渠道侧应跳过重复发送
 
 ## 与消息总线的边界
 

@@ -10,6 +10,12 @@
 - preflight：调用模型前先尝试归纳，防止本轮直接爆窗
 - post-turn：回合结束后异步归纳，为下一轮预留空间
 
+## 预算模型
+
+- 可用预算不是整窗，而是 `context_window - max_completion - safety_buffer`
+- 默认 `safety_buffer=1024`，为估算偏差预留余量
+- 触发后收敛到预算的一半，避免下一轮很快再次触发
+
 源码锚点：
 
 - 主链路触发点：[loop.py](file:///Users/bowhead/nanobot/nanobot/agent/loop.py)

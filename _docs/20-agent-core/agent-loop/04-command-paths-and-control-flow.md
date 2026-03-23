@@ -17,7 +17,7 @@
 
 源码锚点：
 
-- `/new` 分支：[loop.py:L401-L413](file:///Users/bowhead/nanobot/nanobot/agent/loop.py#L401-L413)
+- `/new` 实现：[builtin.py:L69-L82](file:///Users/bowhead/nanobot/nanobot/command/builtin.py#L69-L82)
 
 ## `/help`：命令说明输出
 
@@ -25,11 +25,11 @@
 
 源码锚点：
 
-- `/help` 分支：[loop.py:L413-L423](file:///Users/bowhead/nanobot/nanobot/agent/loop.py#L413-L423)
+- `/help` 实现：[builtin.py:L85-L100](file:///Users/bowhead/nanobot/nanobot/command/builtin.py#L85-L100)
 
 ## `/stop`：取消会话活动任务
 
-在 `run` 主循环中命中 `/stop` 后，会进入 `_handle_stop`：
+在 `run` 主循环中命中 `/stop` 后，会通过 priority 路由进入 `cmd_stop`：
 
 - 取消 `_active_tasks[session_key]` 内所有未完成任务
 - 同步取消该会话下的子代理任务
@@ -37,8 +37,8 @@
 
 源码锚点：
 
-- 命中点：[loop.py:L278-L281](file:///Users/bowhead/nanobot/nanobot/agent/loop.py#L278-L281)
-- 实现：[loop.py:L288-L302](file:///Users/bowhead/nanobot/nanobot/agent/loop.py#L288-L302)
+- 命中点：[loop.py:L328-L333](file:///Users/bowhead/nanobot/nanobot/agent/loop.py#L328-L333)
+- 实现：[builtin.py:L15-L30](file:///Users/bowhead/nanobot/nanobot/command/builtin.py#L15-L30)
 
 ## `/restart`：进程内重启
 
@@ -52,8 +52,23 @@
 
 源码锚点：
 
-- 命中点：[loop.py:L281-L283](file:///Users/bowhead/nanobot/nanobot/agent/loop.py#L281-L283)
-- 实现：[loop.py:L304-L316](file:///Users/bowhead/nanobot/nanobot/agent/loop.py#L304-L316)
+- 命中点：[loop.py:L328-L333](file:///Users/bowhead/nanobot/nanobot/agent/loop.py#L328-L333)
+- 实现：[builtin.py:L32-L42](file:///Users/bowhead/nanobot/nanobot/command/builtin.py#L32-L42)
+
+## `/status`：运行态快照
+
+`/status` 同样注册在 priority 层，可在繁忙时优先返回：
+
+- 版本、模型、运行时长
+- 最近 token usage
+- 会话消息数量与上下文 token 估算
+
+若 token 估算失败，会回退到最近一次 `prompt_tokens`。
+
+源码锚点：
+
+- 注册与命中：[builtin.py:L103-L110](file:///Users/bowhead/nanobot/nanobot/command/builtin.py#L103-L110)
+- 状态构建：[builtin.py:L44-L66](file:///Users/bowhead/nanobot/nanobot/command/builtin.py#L44-L66)
 
 ## system channel 的特殊路径
 

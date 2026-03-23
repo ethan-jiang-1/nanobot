@@ -11,7 +11,7 @@
 - session 没有消息
 - `context_window_tokens <= 0`
 - 估算 token <= 0
-- 估算值 `< context_window_tokens`
+- 估算值 `< budget`
 
 源码锚点：
 
@@ -19,12 +19,15 @@
 
 ## 核心阈值模型
 
-触发阈值不是单一值，而是两段：
+触发阈值不是单一值，而是预算模型：
 
-- 触发线：`estimated >= context_window_tokens`
-- 收敛目标：`target = context_window_tokens // 2`
+- 可用预算：`budget = context_window_tokens - max_completion_tokens - safety_buffer`
+- 触发线：`estimated >= budget`
+- 收敛目标：`target = budget // 2`
 
 一旦触发，会继续归纳直到小于半窗口，而不是只降到“刚好不超”。
+
+默认 `safety_buffer = 1024`，用于覆盖 tokenizer 估算误差，避免请求贴线超窗。
 
 源码锚点：
 

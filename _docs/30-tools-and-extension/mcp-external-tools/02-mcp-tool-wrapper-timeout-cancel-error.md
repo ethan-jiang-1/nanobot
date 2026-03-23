@@ -10,13 +10,22 @@
 每个 MCP 工具都会转成本地 `Tool`：
 
 - 名称：`mcp_<server>_<tool>`
-- 参数：沿用 `inputSchema`
+- 参数：在 `inputSchema` 基础上做 OpenAI 兼容归一化
 - 描述：优先用远端 description
 
 源码锚点：
 
 - wrapper 初始化：[mcp.py:L17-L23](file:///Users/bowhead/nanobot/nanobot/agent/tools/mcp.py#L17-L23)
 - Tool 接口实现：[mcp.py:L25-L35](file:///Users/bowhead/nanobot/nanobot/agent/tools/mcp.py#L25-L35)
+
+## 参数 schema 归一化
+
+对 nullable 形态会做最小改写：
+
+- `type: ["string", "null"]` -> `type: "string", nullable: true`
+- 非 dict schema 回退为最小 object schema
+
+这样可以避免部分 provider 对 `type` 数组报错，同时保持语义不变。
 
 ## 执行时的三类异常路径
 
