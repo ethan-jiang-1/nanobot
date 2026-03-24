@@ -62,6 +62,11 @@ sequenceDiagram
 
 ## 目录阅读地图
 
+- 可执行入口与运行模式：[_docs/00-overview/01-executable-entrypoints-and-runtime-modes.md](./01-executable-entrypoints-and-runtime-modes.md)
+- gateway（daemon）专题：[_docs/00-overview/02-gateway-entrypoint-lifecycle.md](./02-gateway-entrypoint-lifecycle.md)
+- agent（CLI）专题：[_docs/00-overview/03-agent-entrypoint-modes-and-flow.md](./03-agent-entrypoint-modes-and-flow.md)
+- 短命令入口专题：[_docs/00-overview/04-onboard-status-and-ops-entrypoints.md](./04-onboard-status-and-ops-entrypoints.md)
+- 会话内 slash 专题：[_docs/00-overview/05-in-session-slash-entrypoints.md](./05-in-session-slash-entrypoints.md)
 - 主执行流程：[_docs/10-main-flow](../10-main-flow/README.md)
 - Agent 核心机制：[_docs/20-agent-core](../20-agent-core/README.md)
 - 工具与扩展：[_docs/30-tools-and-extension](../30-tools-and-extension/README.md)
