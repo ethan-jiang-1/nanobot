@@ -67,6 +67,7 @@ sequenceDiagram
 - agent（CLI）专题：[_docs/00-overview/03-agent-entrypoint-modes-and-flow.md](./03-agent-entrypoint-modes-and-flow.md)
 - 短命令入口专题：[_docs/00-overview/04-onboard-status-and-ops-entrypoints.md](./04-onboard-status-and-ops-entrypoints.md)
 - 会话内 slash 专题：[_docs/00-overview/05-in-session-slash-entrypoints.md](./05-in-session-slash-entrypoints.md)
+- Agent 文件系统约定（MD/Workspace）：[_docs/20-agent-core/context-builder/05-bootstrap-instructions-and-workspace-targeting.md](../20-agent-core/context-builder/05-bootstrap-instructions-and-workspace-targeting.md)
 - 主执行流程：[_docs/10-main-flow](../10-main-flow/README.md)
 - Agent 核心机制：[_docs/20-agent-core](../20-agent-core/README.md)
 - 工具与扩展：[_docs/30-tools-and-extension](../30-tools-and-extension/README.md)
